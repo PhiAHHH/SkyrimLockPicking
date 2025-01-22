@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://bteuh18bkoc33"]
+
+[ext_resource type="Shader" path="res://Scenes/lockpicking_ui.gdshader" id="1_eqjhi"]
+[ext_resource type="Texture2D" uid="uid://i167e65qycpd" path="res://Assets/lock.png" id="1_sl5tc"]
+[ext_resource type="Script" path="res://Scenes/marker_2d.gd" id="3_73qxh"]
+[ext_resource type="Texture2D" uid="uid://bvfw6qmnvppnb" path="res://Assets/lockKeyHole.png" id="4_w3wx5"]
+[ext_resource type="Script" path="res://Scenes/pick.gd" id="5_hut17"]
+[ext_resource type="Texture2D" uid="uid://hak4fm21y0n5" path="res://Assets/lockpick.png" id="5_kss5f"]
+[ext_resource type="Texture2D" uid="uid://beioj4veoyyko" path="res://Assets/TurningTool.png" id="6_bijhh"]
+[ext_resource type="Script" path="res://Scenes/pickpoint.gd" id="7_lw1sr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qqlvk"]
+shader = ExtResource("1_eqjhi")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1teta"]
+shader = ExtResource("1_eqjhi")
+
+[node name="Lockpicking UI" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_qqlvk")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -343.0
+offset_top = -235.0
+offset_right = 226.0
+offset_bottom = 236.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_sl5tc")
+
+[node name="Lock" type="Marker2D" parent="." node_paths=PackedStringArray("pick", "pick_point")]
+position = Vector2(0, 2)
+script = ExtResource("3_73qxh")
+pick = NodePath("Pick")
+pick_point = NodePath("Pick/pickpoint")
+
+[node name="Lock" type="Sprite2D" parent="Lock"]
+material = SubResource("ShaderMaterial_1teta")
+position = Vector2(-58, -1)
+texture = ExtResource("4_w3wx5")
+
+[node name="Pick" type="Marker2D" parent="Lock"]
+position = Vector2(3, -16)
+script = ExtResource("5_hut17")
+
+[node name="Pick" type="Sprite2D" parent="Lock/Pick"]
+position = Vector2(3, -151)
+rotation = -0.483393
+texture = ExtResource("5_kss5f")
+
+[node name="pickpoint" type="Marker2D" parent="Lock/Pick"]
+top_level = true
+position = Vector2(581, 308)
+script = ExtResource("7_lw1sr")
+
+[node name="Pick" type="Sprite2D" parent="Lock/Pick/pickpoint"]
+visible = false
+position = Vector2(3, -151)
+rotation = -0.483393
+texture = ExtResource("5_kss5f")
+
+[node name="Turner" type="Sprite2D" parent="Lock"]
+position = Vector2(175, 135)
+texture = ExtResource("6_bijhh")

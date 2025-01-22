@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://41262qjr7sxa"]
+
+[ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_tevu4"]
+[ext_resource type="Shader" path="res://player.gdshader" id="2_nq1vk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_egfxq"]
+render_priority = 0
+shader = ExtResource("2_nq1vk")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5kmnb"]
+material = SubResource("ShaderMaterial_egfxq")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c52mr"]
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera") groups=["Player"]]
+script = ExtResource("1_tevu4")
+camera = NodePath("Marker3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.982995, 0, 0, 0, 0.982995, 0, 0, 0, 0.982995, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_5kmnb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_c52mr")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.515336, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Marker3D"]
+transform = Transform3D(0.996077, -3.71068e-09, 0.0884945, -0.0124613, 0.990036, 0.140262, -0.0876127, -0.140815, 0.986152, 0.73083, 0.578869, 2.74372)

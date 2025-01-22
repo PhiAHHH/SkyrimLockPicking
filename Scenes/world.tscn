@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=3 uid="uid://cnrw2qbfysxk"]
+
+[ext_resource type="Shader" path="res://floor.gdshader" id="1_h2rv0"]
+[ext_resource type="PackedScene" uid="uid://41262qjr7sxa" path="res://Scenes/Player/player.tscn" id="2_tudgw"]
+[ext_resource type="PackedScene" uid="uid://cpsmr7hi7sd1d" path="res://Scenes/Chest/chest.tscn" id="3_my4nm"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kymo1"]
+sky_top_color = Color(0.190716, 0.512999, 0.428237, 1)
+sky_horizon_color = Color(2.88785e-06, 0.73652, 0.827644, 1)
+sky_curve = 0.0274516
+sky_cover_modulate = Color(0.294118, 0.313726, 0.231373, 1)
+ground_bottom_color = Color(0.0262225, 0.202515, 0.20362, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_unavu"]
+sky_material = SubResource("ProceduralSkyMaterial_kymo1")
+
+[sub_resource type="Environment" id="Environment_gpv5f"]
+background_mode = 2
+sky = SubResource("Sky_unavu")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_70ynp"]
+render_priority = 0
+shader = ExtResource("1_h2rv0")
+
+[sub_resource type="QuadMesh" id="QuadMesh_fh66e"]
+material = SubResource("ShaderMaterial_70ynp")
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_a550t"]
+
+[node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gpv5f")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(-19.8373, 0, 0, 0, -8.78202e-07, 1, 0, -20.0909, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_fh66e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_a550t")
+
+[node name="Player" parent="." instance=ExtResource("2_tudgw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.72585, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.0611356, 0.998129, 0, -0.548505, 0.033596, 0.835472, 0.833909, -0.0510771, 0.549533, 0, 0, 0)
+
+[node name="Chest" parent="." instance=ExtResource("3_my4nm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50269, -7.49804)
