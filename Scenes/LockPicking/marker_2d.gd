@@ -1,7 +1,6 @@
 extends Marker2D
 @onready var lockpicking_ui: Control = $".."
 @export var pick : Marker2D
-@export var pick_point: Marker2D
 #how difficult lock is to pick higher the number, the easier
 var difficulty = 5
 #how soon the lock will bigin to rotate even if it pick placement is incorrect
@@ -9,17 +8,17 @@ var start_rotation = .5 #bigger the number the more exact your pick placment nee
 
 func _process(delta: float) -> void:
 	#allows for picking even if pick placment isn't exact(increase number to decrease difficulty and vise versa)
-	var upper_limit = pick_point.rotation + deg_to_rad(difficulty)
-	var lower_limit = pick_point.rotation - deg_to_rad(difficulty)
-	
-	var rotation_diff = pick.rotation / pick_point.rotation
+	var upper_limit = pick.target_rotation + deg_to_rad(difficulty)
+	var lower_limit = pick.target_rotation - deg_to_rad(difficulty)
+	print(pick.target_rotation)
+	var rotation_diff = pick.rotation / pick.target_rotation
 	var max_lock_rotation
 	#get difference between pick location and where the pick needs to be
 	#allows for the lock to rotate even if pick isn't placed correctly
 	if rotation_diff > 1:
-		rotation_diff = pick_point.rotation / pick.rotation
+		rotation_diff = pick.target_rotation / pick.rotation
 	else: #swaps the fraction so rotation_diff is always < 1
-		rotation_diff = pick.rotation / pick_point.rotation
+		rotation_diff = pick.rotation / pick.target_rotation
 	#how far the lock can rotate is based on above eqautions
 	max_lock_rotation = rotation_diff * 90
 	
