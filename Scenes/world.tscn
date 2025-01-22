@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cnrw2qbfysxk"]
 
-[ext_resource type="Shader" path="res://floor.gdshader" id="1_h2rv0"]
+[ext_resource type="Shader" path="res://Scenes/floor.gdshader" id="1_h2rv0"]
 [ext_resource type="PackedScene" uid="uid://41262qjr7sxa" path="res://Scenes/Player/player.tscn" id="2_tudgw"]
 [ext_resource type="PackedScene" uid="uid://cpsmr7hi7sd1d" path="res://Scenes/Chest/chest.tscn" id="3_my4nm"]
 

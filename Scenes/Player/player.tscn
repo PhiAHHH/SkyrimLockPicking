@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://41262qjr7sxa"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_tevu4"]
-[ext_resource type="Shader" path="res://player.gdshader" id="2_nq1vk"]
+[ext_resource type="Shader" path="res://Scenes/Player/player.gdshader" id="2_nq1vk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_egfxq"]
 render_priority = 0

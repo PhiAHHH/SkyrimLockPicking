@@ -1,13 +1,13 @@
 [gd_scene load_steps=11 format=3 uid="uid://bteuh18bkoc33"]
 
-[ext_resource type="Shader" path="res://Scenes/lockpicking_ui.gdshader" id="1_eqjhi"]
+[ext_resource type="Shader" path="res://Scenes/LockPicking/lockpicking_ui.gdshader" id="1_eqjhi"]
 [ext_resource type="Texture2D" uid="uid://i167e65qycpd" path="res://Assets/lock.png" id="1_sl5tc"]
-[ext_resource type="Script" path="res://Scenes/marker_2d.gd" id="3_73qxh"]
+[ext_resource type="Script" path="res://Scenes/LockPicking/marker_2d.gd" id="3_73qxh"]
 [ext_resource type="Texture2D" uid="uid://bvfw6qmnvppnb" path="res://Assets/lockKeyHole.png" id="4_w3wx5"]
-[ext_resource type="Script" path="res://Scenes/pick.gd" id="5_hut17"]
+[ext_resource type="Script" path="res://Scenes/LockPicking/pick.gd" id="5_hut17"]
 [ext_resource type="Texture2D" uid="uid://hak4fm21y0n5" path="res://Assets/lockpick.png" id="5_kss5f"]
 [ext_resource type="Texture2D" uid="uid://beioj4veoyyko" path="res://Assets/TurningTool.png" id="6_bijhh"]
-[ext_resource type="Script" path="res://Scenes/pickpoint.gd" id="7_lw1sr"]
+[ext_resource type="Script" path="res://Scenes/LockPicking/pickpoint.gd" id="7_lw1sr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qqlvk"]
 shader = ExtResource("1_eqjhi")

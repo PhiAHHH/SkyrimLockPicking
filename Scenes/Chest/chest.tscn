@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bm76qmlc5dvba" path="res://Assets/Chest.glb" id="1_sqckn"]
 [ext_resource type="Script" path="res://Scenes/Chest/chest_area.gd" id="2_76av6"]
-[ext_resource type="PackedScene" uid="uid://bteuh18bkoc33" path="res://Scenes/lockpicking_ui.tscn" id="3_6p1k6"]
+[ext_resource type="PackedScene" uid="uid://bteuh18bkoc33" path="res://Scenes/LockPicking/lockpicking_ui.tscn" id="3_6p1k6"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ig3ju"]
 
